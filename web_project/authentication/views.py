@@ -48,7 +48,10 @@ class RegisterView(APIView):
 		serializer.is_valid(raise_exception=True)
 		serializer.save()
 
-		return Response({'message': 'User created and pending approval'}, status=status.HTTP_201_CREATED)
+		if serializer.data['is_pending'] == True:
+			return Response({'message': 'User created and pending approval'}, status=status.HTTP_201_CREATED)
+		
+		return Response({'message': 'User created'}, status=status.HTTP_201_CREATED)
 
 
 

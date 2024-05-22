@@ -12,7 +12,7 @@ class User(AbstractUser):
 	email = models.EmailField(max_length=255, unique=True)
 	full_name = models.CharField(max_length=255)
 	password = models.CharField(max_length=255)
-	role = models.CharField(choices=UserRole.choices, default=UserRole.STUDENT, max_length=10)
+	role = models.CharField(choices=UserRole.choices, default=None, null=True, max_length=10)
 	is_pending = models.BooleanField(default=True)
 
 	USERNAME_FIELD = 'email'

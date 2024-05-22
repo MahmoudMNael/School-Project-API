@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from assignments.models import Assignment
+from assignments.models import Assignment, Comment, Submission
 from authentication.serializers import UserSerializer
 
 class AssignmentSerializer(serializers.ModelSerializer):
@@ -12,12 +12,12 @@ class AssignmentSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
 	created_by = UserSerializer(read_only=True)
 	class Meta:
-		model = Assignment
+		model = Comment
 		fields = ['id', 'content', 'created_at', 'created_by']
 
 
 class SubmissionSerializer(serializers.ModelSerializer):
 	created_by = UserSerializer(read_only=True)
 	class Meta:
-		model = Assignment
+		model = Submission
 		fields = ['id', 'link', 'created_at', 'created_by']

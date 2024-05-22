@@ -4,3 +4,4 @@ web_project/db.sqlite3
 */*/migrations
 */__pycache__
 */*/__pycache__
+web_project/assignments/temp.py

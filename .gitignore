@@ -1,0 +1,6 @@
+.vscode
+.venv
+web_project/db.sqlite3
+*/*/migrations
+*/__pycache__
+*/*/__pycache__

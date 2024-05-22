@@ -6,7 +6,7 @@
 
 #### 2. Initialize venv with `python -m venv .venv`
 
-#### 3. Activate venv
+#### 3. Activate venv with `.venv/Scripts/activate`
 
 #### 4. Run `pip install -r requirements.txt` in your terminal to install the required packages for this project
 

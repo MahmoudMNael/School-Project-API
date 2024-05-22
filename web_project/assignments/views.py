@@ -95,7 +95,7 @@ class AssignmentDetailView(APIView):
 class CommentsListView(APIView):
 	def get(self, request, classroom_id, assignment_id):
 		assignment = Assignment.objects.filter(id=assignment_id).first()
-		comment = assignment.comments.all()
+		comment = assignment.comments.order_by('-created_at').all()
 		serialized_comments = CommentSerializer(comment , many=True)
 
 		if not assignment:
@@ -128,7 +128,7 @@ class SubmissionsListView(APIView):
 	def get(self, request, classroom_id, assignment_id):
 		assignment = Assignment.objects.filter(id=assignment_id).first()
 		classroom = Classroom.objects.filter(id=classroom_id).first()
-		submit_links = assignment.submissions.all()
+		submit_links = assignment.submissions.order_by('-created_at').all()
 		serialized_links = SubmissionSerializer(submit_links , many=True)
 
 		if not assignment:

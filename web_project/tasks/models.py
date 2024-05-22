@@ -11,6 +11,6 @@ class Task(models.Model):
 	description = models.TextField()
 	priority = models.CharField(choices=TaskPriority.choices, default=TaskPriority.LOW, max_length=10)
 	is_done = models.BooleanField(default=False)
-	created_at = models.DateTimeField(auto_now_add=True)
+	created_at = models.DateField(auto_now_add=True)
 	teacher = models.ForeignKey('authentication.User', on_delete=models.CASCADE, related_name='tasks')
 	

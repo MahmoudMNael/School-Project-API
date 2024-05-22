@@ -46,7 +46,6 @@ INSTALLED_APPS = [
 		'classrooms',
 		'assignments',
 		'announcements',
-		'drf_yasg',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'

@@ -2,14 +2,18 @@
 
 ## Initialize the project
 
-#### 1. Create a venv in the root file outside 'web_project'
+#### 1. Clone the repository with `git clone https://github.com/MahmoudMNael/School-Project-API.git`
 
-#### 2. Run `pip install requirements.txt` in your terminal to install the required packages for this project
+#### 2. Initialize venv with `python -m venv .venv`
 
-#### 3. Go to 'web_project' directory
+#### 3. Activate venv
 
-#### 4. Run `python manage.py makemigrations`
+#### 4. Run `pip install -r requirements.txt` in your terminal to install the required packages for this project
 
-#### 5. Run `python manage.py migrate`
+#### 5. Go to 'web_project' directory
 
-#### 6. Run `python manage.py runserver` and you will be ready to go ❤
+#### 6. Run `python manage.py makemigrations`
+
+#### 7. Run `python manage.py migrate`
+
+#### 8. Run `python manage.py runserver` and you will be ready to go ❤

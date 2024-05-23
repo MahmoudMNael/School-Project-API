@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 	def create(self, validated_data):
 		password = validated_data.pop('password', None)
-		is_pending = validated_data.pop('is_pending', True)
+		is_pending = True
 		instance = self.Meta.model(**validated_data)
 
 		if instance.role == 'admin' and self.Meta.model.objects.filter(role='admin').all().count() == 0:

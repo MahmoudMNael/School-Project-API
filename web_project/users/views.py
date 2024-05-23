@@ -10,7 +10,7 @@ class UserList(APIView):
 	def get(self, request, user_type):
 		current_user = is_logged_in(request)
 
-		users = User.objects.filter(role=user_type)
+		users = User.objects.filter(role=user_type, is_pending=False).order_by('full_name').all()
 
 		if not users:
 			return Response({'message': 'No users found'}, status=status.HTTP_404_NOT_FOUND)

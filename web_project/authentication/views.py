@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from authentication.serializers import UserSerializer
 from middlewares.authentication import is_logged_in, is_admin
 import jwt, datetime
+from django.db.models import Q
 
 
 class LoginView(APIView):
@@ -33,9 +34,7 @@ class LoginView(APIView):
 
 		response = Response()
 		response.set_cookie(key='jwt', value=token, httponly=True, samesite='None', secure=True)
-		response.data = {
-			'message': 'User logged in'
-		}
+		response.data = UserSerializer(user).data
 		response.status_code = status.HTTP_200_OK
 
 		return response
@@ -59,7 +58,7 @@ class PendingUsersView(APIView):
 	def get(self, request):
 		current_user = is_admin(request)
 
-		pending_users = User.objects.filter(is_pending=True).order_by('date_joined')
+		pending_users = User.objects.filter(~Q(role=None), is_pending=True).order_by('date_joined')
 
 		serialized_users = UserSerializer(pending_users, many=True)
 

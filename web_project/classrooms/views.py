@@ -83,6 +83,6 @@ class ClassroomPeopleView(APIView):
 		if current_user.role == 'admin' or current_user == classroom.teacher or current_user in classroom.students.all():
 			teacher = UserSerializer(classroom.teacher)
 			students = UserSerializer(classroom.students.order_by('full_name'), many=True)
-			return Response({'teacher': teacher.data, 'students': students}, status=status.HTTP_200_OK)
+			return Response({'teacher': teacher.data, 'students': students.data}, status=status.HTTP_200_OK)
 		else:
 			raise exceptions.PermissionDenied('You do not have permission to view this classroom')

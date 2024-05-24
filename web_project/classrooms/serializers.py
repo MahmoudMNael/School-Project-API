@@ -1,4 +1,3 @@
-from asyncore import read
 from rest_framework import serializers
 from classrooms.models import Classroom
 from authentication.serializers import UserSerializer

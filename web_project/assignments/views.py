@@ -66,7 +66,9 @@ class AssignmentDetailView(APIView):
 			content = request.data.get('content')
 			due_date = request.data.get('due_date')
 			try:
-				assignment = Assignment(title=title, content=content, due_date=due_date, created_by=current_user, classroom=classroom)
+				assignment.title = title
+				assignment.content = content
+				assignment.due_date = due_date
 				assignment.save()
 				serialized_assignment = AssignmentSerializer(assignment)
 				return Response(serialized_assignment.data, status=status.HTTP_200_OK)
